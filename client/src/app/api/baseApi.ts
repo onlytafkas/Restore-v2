@@ -4,7 +4,8 @@ import { toast } from "react-toastify";
 import { router } from "../route/Routes";
 
 const customBaseQuery = fetchBaseQuery({
-    baseUrl: 'https://localhost:5001/api'
+    baseUrl: 'https://localhost:5001/api',
+    credentials: 'include' // to allow cookies
 });
 
 type ErrorResponse = | string | { title: string } | { errors: string[] }

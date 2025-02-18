@@ -19,7 +19,11 @@ var app = builder.Build();
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors(opt =>
 {
-    opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:3000");
+    opt
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowCredentials() // to allow cookies
+    .WithOrigins("https://localhost:3000");
 });
 
 app.MapControllers();

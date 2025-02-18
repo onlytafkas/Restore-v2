@@ -17,6 +17,7 @@ export default function ProductCard({ product }: Props) {
             sx={{
                 width: 280,
                 borderRadius: 2,
+                display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between'
             }}
@@ -37,7 +38,7 @@ export default function ProductCard({ product }: Props) {
                     variant='h6'
                     sx={{ color: 'secondary.main' }}
                 >
-                    {currencyFormat(product.price)}
+                  {currencyFormat(product.price )}
                 </Typography>
             </CardContent>
             <CardActions

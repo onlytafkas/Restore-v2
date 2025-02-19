@@ -1,0 +1,1417 @@
+{
+	"info": {
+		"_postman_id": "67ca3c9c-969d-4917-b018-89b9294d7088",
+		"name": "Restore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2726016"
+	},
+	"item": [
+		{
+			"name": "Section2",
+			"item": [
+				{
+					"name": "Get Weatherforecast",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/weatherforecast",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"weatherforecast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Section6",
+			"item": [
+				{
+					"name": "Not found error",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/buggy/not-found",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"not-found"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bad request error",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/buggy/bad-request",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"bad-request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unauthorised error",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/buggy/unauthorized",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"unauthorized"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validation error",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/buggy/validation-error",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"validation-error"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Server error",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/buggy/server-error",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"buggy",
+								"server-error"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Section7",
+			"item": [
+				{
+					"name": "Get Basket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/basket",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"basket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add item to basket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/basket?productId=2&quantity=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"basket"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "2"
+								},
+								{
+									"key": "quantity",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove item from basket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/basket?productId=2&quantity=4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"basket"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "2"
+								},
+								{
+									"key": "quantity",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Section8",
+			"item": [
+				{
+					"name": "Get Products OrderedBy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products?orderBy=priceDesc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "orderBy",
+									"value": "priceDesc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products?searchTerm=red",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "searchTerm",
+									"value": "red"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search & order products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products?searchTerm=red&orderBy=priceDesc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "searchTerm",
+									"value": "red"
+								},
+								{
+									"key": "orderBy",
+									"value": "priceDesc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter products brands",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products?brands=angular,react",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "brands",
+									"value": "angular,react"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter products types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products?types=boots",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "types",
+									"value": "boots"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter brands&types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products?types=boots&brands=redis,angular",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "types",
+									"value": "boots"
+								},
+								{
+									"key": "brands",
+									"value": "redis,angular"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagination",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Filters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products/filters",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"filters"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Section9",
+			"item": [
+				{
+					"name": "Login JWT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"bob@test.com\",\n    \"password\": \"Pa$$w0rd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login cookie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"bob@test.com\",\n    \"password\": \"Pa$$w0rd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login?useCookies=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							],
+							"query": [
+								{
+									"key": "useCookies",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"tom@test.com\",\n    \"password\": \"Pa$$w0rd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/account/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser Duplicate username",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"bob@test.com\",\n    \"password\": \"Pa$$w0rd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/account/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser Weak password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"bob@test.com\",\n    \"password\": \"letmein\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/account/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get default user info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/manage/info",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"manage",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get custom user info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/account/user-info",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"user-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@test.com\",\n    \"password\": \"Pa$$w0rd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login?useCookies=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							],
+							"query": [
+								{
+									"key": "useCookies",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bob Bobbity\",\n    \"line1\": \"100 Park Lane\",\n    \"city\": \"London\",\n    \"state\": \"London\",\n    \"postal_code\": \"SW1 1BD\",\n    \"country\": \"GB\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/account/address",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Address",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/account/address",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"address"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Section10",
+			"item": [
+				{
+					"name": "Login cookie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"bob@test.com\",\n    \"password\": \"Pa$$w0rd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login?useCookies=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							],
+							"query": [
+								{
+									"key": "useCookies",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Basket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/basket",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"basket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add item to basket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/basket?productId=2&quantity=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"basket"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "2"
+								},
+								{
+									"key": "quantity",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create payment intent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/payments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Section11",
+			"item": [
+				{
+					"name": "Create order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shippingAddress\": {\n        \"name\": \"Bob Test\",\n        \"city\": \"New York\",\n        \"country\": \"US\",\n        \"line1\": \"100 Centre Street\",\n        \"line2\": null,\n        \"postal_code\": \"10013\",\n        \"state\": \"NY\"\n    },\n    \"paymentSummary\": {\n        \"last4\": 1234,\n        \"brand\": \"VISA\",\n        \"expMonth\": 12,\n        \"expYear\": 2030\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/orders/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Section13",
+			"item": [
+				{
+					"name": "Login as Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@test.com\",\n    \"password\": \"Pa$$w0rd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login?useCookies=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							],
+							"query": [
+								{
+									"key": "useCookies",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as Bob",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"bob@test.com\",\n    \"password\": \"Pa$$w0rd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login?useCookies=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							],
+							"query": [
+								{
+									"key": "useCookies",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/account/user-info",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"account",
+								"user-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomProductName}}\",\n    \"description\": \"{{$randomLoremParagraph}}\",\n    \"price\": 2000,\n    \"pictureUrl\": \"https://picsum.photos/500\",\n    \"type\": \"Hats\",\n    \"brand\": \"Angular\",\n    \"quantityInStock\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product With File",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "{{$randomProductName}}",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "{{$randomLoremParagraph}}",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "2000",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/neilc/Projects/RestoreCourse/demo/Restore/client/public/images/products/boot-ang1.png"
+								},
+								{
+									"key": "type",
+									"value": "Hats",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "Angular",
+									"type": "text"
+								},
+								{
+									"key": "quantityInStock",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 19,\n    \"name\": \"{{$randomProductName}} Updated\",\n    \"description\": \"{{$randomLoremParagraph}}\",\n    \"price\": 2000,\n    \"pictureUrl\": \"https://picsum.photos/500\", \n    \"type\": \"Hats\",\n    \"brand\": \"Angular\",\n    \"quantityInStock\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Product With File",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "{{$randomProductName}} Updated",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "{{$randomLoremParagraph}}",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "2000",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/neilc/Projects/RestoreCourse/demo/Restore/client/public/images/products/glove-react1.png"
+								},
+								{
+									"key": "type",
+									"value": "Hats",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "Angular",
+									"type": "text"
+								},
+								{
+									"key": "quantityInStock",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "20",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/products/19",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/products/19",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"19"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Challenge",
+			"item": [
+				{
+					"name": "Get Basket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/basket",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"basket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add item to basket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/basket?productId=2&quantity=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"basket"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "2"
+								},
+								{
+									"key": "quantity",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create payment intent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/payments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update basket with coupon code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/basket/GIMME10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"basket",
+								"GIMME10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete coupon from basket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/basket/remove-coupon",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"basket",
+								"remove-coupon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shippingAddress\": {\n        \"name\": \"Bob Test\",\n        \"city\": \"New York\",\n        \"country\": \"US\",\n        \"line1\": \"100 Centre Street\",\n        \"line2\": null,\n        \"postal_code\": \"10013\",\n        \"state\": \"NY\"\n    },\n    \"paymentSummary\": {\n        \"last4\": 1234,\n        \"brand\": \"VISA\",\n        \"expMonth\": 12,\n        \"expYear\": 2030\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://localhost:5001",
+			"type": "string"
+		}
+	]
+}

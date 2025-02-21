@@ -10,8 +10,9 @@ import NotFound from "../errors/NotFound";
 import CheckoutPage from "../../features/checkout/CheckoutPage";
 import BasketPage from "../../features/basket/BasketPage";
 import LoginForm from "../../features/account/LoginForm";
-import RegisterForm from "../../features/account/registerForm";
 import RequireAuth from "./RequireAuth";
+import RegisterForm from "../../features/account/RegisterForm";
+import CheckoutSuccess from "../../features/checkout/CheckoutSuccess";
 
 
 export const router = createBrowserRouter([
@@ -21,7 +22,8 @@ export const router = createBrowserRouter([
         children: [
             {
                 element: <RequireAuth />, children: [
-                    { path: 'checkout', element: <CheckoutPage /> }
+                    { path: 'checkout', element: <CheckoutPage /> },
+                    { path: 'checkout/success', element: <CheckoutSuccess /> },
                 ]
             },
             { path: '', element: <HomePage /> },

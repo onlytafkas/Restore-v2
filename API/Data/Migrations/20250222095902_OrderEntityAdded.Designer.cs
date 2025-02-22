@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20250222095902_OrderEntityAdded")]
+    partial class OrderEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.2");
@@ -124,7 +127,6 @@ namespace API.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("PaymentIntentId")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<long>("SubTotal")
@@ -154,7 +156,7 @@ namespace API.Data.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("API.Entities.Product", b =>
@@ -524,7 +526,7 @@ namespace API.Data.Migrations
 
                             b1.HasKey("OrderItemId");
 
-                            b1.ToTable("OrderItems");
+                            b1.ToTable("OrderItem");
 
                             b1.WithOwner()
                                 .HasForeignKey("OrderItemId");

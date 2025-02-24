@@ -1,5 +1,5 @@
 import { Box, Button, Paper } from "@mui/material";
-import Search from "./search";
+import Search from "./Search";
 import RadioButtonGroup from "../../app/shared/components/RadioButtonGroup";
 import { useAppDispatch, useAppSelector } from "../../app/store/store";
 import { resetParams, setBrands, setOrderBy, setTypes } from "./catalogSlice";

@@ -2,10 +2,22 @@ import { Box, Typography, Divider, Button, TextField, Paper } from "@mui/materia
 import { currencyFormat } from "../../../lib/util";
 import { Link, useLocation } from "react-router-dom";
 import { useBasket } from "../../../lib/hooks/useBasket";
+import { LoadingButton } from "@mui/lab";
+import { Delete } from "@mui/icons-material";
+import { useAddCouponMutation, useRemoveCouponMutation } from "../../../features/basket/basketApi";
+import { FieldValues, useForm } from "react-hook-form";
 
 export default function OrderSummary() {
-    const { subTotal, deliveryFee } = useBasket();
+    const { subTotal, deliveryFee, discount, basket, total } = useBasket();
     const location = useLocation();
+    const { register, handleSubmit, formState: { isSubmitting } } = useForm();
+    const [addCoupon] = useAddCouponMutation();
+    const [removeCoupon, { isLoading }] = useRemoveCouponMutation();
+
+    const onSubmit = async (data: FieldValues) => {
+        await addCoupon(data.code);
+    }
+
 
     return (
         <Box display="flex" flexDirection="column" alignItems="center" maxWidth="lg" mx="auto">
@@ -27,8 +39,7 @@ export default function OrderSummary() {
                     <Box display="flex" justifyContent="space-between" mb={1}>
                         <Typography color="textSecondary">Discount</Typography>
                         <Typography color="success">
-                            {/* TODO */}
-                            -$0.00
+                            -{currencyFormat(discount)}
                         </Typography>
                     </Box>
                     <Box display="flex" justifyContent="space-between" mb={1}>
@@ -41,7 +52,7 @@ export default function OrderSummary() {
                     <Box display="flex" justifyContent="space-between" mb={1}>
                         <Typography color="textSecondary">Total</Typography>
                         <Typography>
-                            {currencyFormat(subTotal + deliveryFee)}
+                            {currencyFormat(total)}
                         </Typography>
                     </Box>
                 </Box>
@@ -71,31 +82,42 @@ export default function OrderSummary() {
             </Paper >
 
             {/* Coupon Code Section */}
-            < Paper sx={{ width: '100%', borderRadius: 3, p: 3 }
-            }>
+            {location.pathname.includes('checkout') &&
+                <Paper sx={{ width: '100%', borderRadius: 3, p: 3 }}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <Typography variant="subtitle1" component="label">
+                            Do you have a voucher code?
+                        </Typography>
+                        {basket?.coupon &&
+                            <Box display='flex' justifyContent='space-between' alignItems='center'>
+                                <Typography fontWeight='bold' variant='body2'>
+                                    {basket.coupon.name} applied
+                                </Typography>
+                                <LoadingButton loading={isLoading} onClick={() => removeCoupon()}>
+                                    <Delete color="error" />
+                                </LoadingButton>
+                            </Box>}
 
-                <form>
-                    <Typography variant="subtitle1" component="label">
-                        Do you have a voucher code?
-                    </Typography>
-
-                    <TextField
-                        label="Voucher code"
-                        variant="outlined"
-                        fullWidth
-                        sx={{ my: 2 }}
-                    />
-
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        fullWidth
-                    >
-                        Apply code
-                    </Button>
-                </form>
-            </Paper >
+                        <TextField
+                            label="Voucher code"
+                            variant="outlined"
+                            fullWidth
+                            disabled={!!basket?.coupon}
+                            {...register('code', { required: 'Voucher code missing' })}
+                            sx={{ my: 2 }}
+                        />
+                        <LoadingButton
+                            loading={isSubmitting}
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            fullWidth
+                            disabled={!!basket?.coupon}
+                        >
+                            Apply code
+                        </LoadingButton>
+                    </form>
+                </Paper>}
         </Box >
     )
 }

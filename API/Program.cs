@@ -15,16 +15,14 @@ builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection(
 builder.Services.AddControllers();
 builder.Services.AddDbContext<StoreContext>(opt =>
 {
-    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
-    //opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-
-    // drop db - chg connstr: here+appsettings - delete migrations - re-add migrations - start app
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddCors();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddTransient<ExceptionMiddleware>();
 builder.Services.AddScoped<PaymentsService>();
 builder.Services.AddScoped<ImageService>();
+builder.Services.AddScoped<DiscountService>();
 builder.Services.AddIdentityApiEndpoints<User>(opt =>
     {
         opt.User.RequireUniqueEmail = true;
@@ -47,7 +45,7 @@ app.UseCors(opt =>
     .AllowAnyHeader()
     .AllowAnyMethod()
     .AllowCredentials() // to allow cookies
-    .WithOrigins("https://localhost:3000"); 
+    .WithOrigins("https://localhost:3000");
 });
 
 app.UseAuthentication();

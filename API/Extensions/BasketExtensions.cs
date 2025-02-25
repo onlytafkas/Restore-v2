@@ -12,6 +12,7 @@ public static class BasketExtensions
         {
             BasketId = basket.BasketId,
             ClientSecret = basket.ClientSecret,
+            Coupon = basket.Coupon,
             PaymentIntentId = basket.PaymentIntentId,
             Items = basket.Items.Select(x => new BasketItemDto
             {

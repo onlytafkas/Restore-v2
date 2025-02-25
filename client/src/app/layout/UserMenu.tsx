@@ -1,7 +1,7 @@
 import { Button, Divider, Fade, ListItemIcon, ListItemText, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
 import { User } from "../models/user";
-import { History, Logout, Person } from "@mui/icons-material";
+import { History, Inventory, Logout, Person } from "@mui/icons-material";
 import { useLogoutMutation } from "../../features/account/accountApi";
 import { Link } from "react-router-dom";
 
@@ -46,12 +46,20 @@ export default function UserMenu({ user }: Props) {
                     </ListItemIcon>
                     <ListItemText>My profile</ListItemText>
                 </MenuItem>
-                <MenuItem component={Link} to='/orders'>
+                <MenuItem component={Link} to='/orders' onClick={handleClose}>
                     <ListItemIcon>
                         <History />
                     </ListItemIcon>
                     <ListItemText>My orders</ListItemText>
                 </MenuItem>
+                {user.roles.includes('Admin') &&
+                    <MenuItem component={Link} to='/inventory' onClick={handleClose}>
+                        <ListItemIcon>
+                            <Inventory />
+                        </ListItemIcon>
+                        <ListItemText>Inventory</ListItemText>
+                    </MenuItem>
+                }
                 <Divider />
                 <MenuItem onClick={logout}>
                     <ListItemIcon>

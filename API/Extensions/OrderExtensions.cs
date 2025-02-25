@@ -17,6 +17,7 @@ public static class OrderExtensions
             PaymentSummary = order.PaymentSummary,
             DeliveryFee = order.DeliveryFee,
             SubTotal = order.SubTotal,
+            Discount = order.Discount,
             OrderStatus = order.OrderStatus.ToString(),
             Total = order.GetTotal(),
             OrderItems = order.OrderItems.Select(item => new OrderItemDto
@@ -41,6 +42,7 @@ public static class OrderExtensions
             PaymentSummary = order.PaymentSummary,
             DeliveryFee = order.DeliveryFee,
             SubTotal = order.SubTotal,
+            Discount = order.Discount,
             OrderStatus = order.OrderStatus.ToString(),
             Total = order.GetTotal(),
             OrderItems = order.OrderItems.Select(item => new OrderItemDto

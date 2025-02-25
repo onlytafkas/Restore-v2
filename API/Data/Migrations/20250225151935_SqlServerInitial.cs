@@ -54,7 +54,12 @@ namespace API.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BasketId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ClientSecret = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PaymentIntentId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    PaymentIntentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Coupon_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Coupon_AmountOff = table.Column<long>(type: "bigint", nullable: true),
+                    Coupon_PercentOff = table.Column<decimal>(type: "decimal(5,2)", precision: 5, scale: 2, nullable: true),
+                    Coupon_PromotionCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Coupon_CouponId = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -103,7 +108,8 @@ namespace API.Data.Migrations
                     PictureUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    QuantityInStock = table.Column<int>(type: "int", nullable: false)
+                    QuantityInStock = table.Column<int>(type: "int", nullable: false),
+                    PublicId = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

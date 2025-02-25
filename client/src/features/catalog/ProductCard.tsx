@@ -32,7 +32,7 @@ export default function ProductCard({ product }: Props) {
                     gutterBottom
                     sx={{ textTransform: 'upperCase' }}
                     variant="subtitle2">
-                    {product.name}
+                    {product.id} - {product.name} 
                 </Typography>
                 <Typography
                     variant='h6'

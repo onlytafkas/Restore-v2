@@ -78,6 +78,7 @@ public class PaymentsController(
         try
         {
             // open terminal:
+            // c:\_installed\stripe.exe
             // - stripe.login
             // - stripe listen --forward-to https://localhost:5001/api/payments/webhook --events payment_intent.succeeded,payment_intent.payment_failed
             return EventUtility.ConstructEvent(

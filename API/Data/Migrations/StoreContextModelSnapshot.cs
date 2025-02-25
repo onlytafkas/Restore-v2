@@ -199,6 +199,9 @@ namespace API.Data.Migrations
                     b.Property<long>("Price")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("PublicId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("QuantityInStock")
                         .HasColumnType("int");
 
@@ -426,6 +429,43 @@ namespace API.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("API.Entities.Basket", b =>
+                {
+                    b.OwnsOne("API.Entities.AppCoupon", "Coupon", b1 =>
+                        {
+                            b1.Property<int>("BasketId")
+                                .HasColumnType("int");
+
+                            b1.Property<long?>("AmountOff")
+                                .HasColumnType("bigint");
+
+                            b1.Property<string>("CouponId")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Name")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<decimal?>("PercentOff")
+                                .HasPrecision(5, 2)
+                                .HasColumnType("decimal(5,2)");
+
+                            b1.Property<string>("PromotionCode")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("BasketId");
+
+                            b1.ToTable("Baskets");
+
+                            b1.WithOwner()
+                                .HasForeignKey("BasketId");
+                        });
+
+                    b.Navigation("Coupon");
                 });
 
             modelBuilder.Entity("API.Entities.BasketItem", b =>

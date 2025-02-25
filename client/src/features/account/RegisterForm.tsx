@@ -8,10 +8,11 @@ import { Link } from "react-router-dom";
 
 export default function RegisterForm() {
     const [registerUser] = useRegisterMutation();
-    const { register, handleSubmit, setError, formState: { errors, isValid, isLoading } } = useForm<RegisterSchema>({
-        mode: 'onTouched',
-        resolver: zodResolver(registerSchema)
-    })
+    const { register, handleSubmit, setError, formState: { errors, isValid, isLoading } } =
+        useForm<RegisterSchema>({
+            mode: 'onTouched',
+            resolver: zodResolver(registerSchema)
+        })
 
     const onSubmit = async (data: RegisterSchema) => {
         try {

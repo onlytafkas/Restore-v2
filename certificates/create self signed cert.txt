@@ -1,0 +1,3 @@
+$cert = New-SelfSignedCertificate -DnsName "localhost" -CertStoreLocation "Cert:\LocalMachine\My"
+$pwd = ConvertTo-SecureString -String "Pa$$w0rd" -Force -AsPlainText
+Export-PfxCertificate -Cert "Cert:\LocalMachine\My\$($cert.Thumbprint)" -FilePath "C:\_code\ecommerce\svenscode\Restore\certificates\restore.pfx" -Password $pwd

@@ -17,6 +17,18 @@ builder.Services.AddDbContext<StoreContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+
+
+// extra for container deployment ====================
+var defaultConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+Console.WriteLine($"Connection String: {defaultConnection}");
+// ===================================================
+
+
+
+
+
 builder.Services.AddCors();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddTransient<ExceptionMiddleware>();

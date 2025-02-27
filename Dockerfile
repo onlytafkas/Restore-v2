@@ -50,15 +50,15 @@ COPY certificates/restore.pfx /app/restore.pfx
 ENV ASPNETCORE_Kestrel__Certificates__Default__Path=/app/restore.pfx
 ENV ASPNETCORE_Kestrel__Certificates__Default__Password="Pa$$w0rd"
 
-# Stel de ASPNETCORE_URLS in om enkel HTTPS te gebruiken
-ENV ASPNETCORE_URLS="https://+:443"
+# Configureer dat de app zowel HTTP als HTTPS accepteert
+ENV ASPNETCORE_URLS="http://+:80;https://+:443"
 
-# Exposeer alleen poort 443 (HTTPS)
-EXPOSE 443
+# Exposeer poorten 80 en 443
+EXPOSE 80 443
 
 # Omgevingsvariabele voor de database verbindingstring
-# Gebruik 'host.docker.internal' om te verbinden met je lokale SQL Server
-ENV ConnectionStrings__DefaultConnection="Server=host.docker.internal,1433;Database=shop;User Id=sa;Password=Password@1;TrustServerCertificate=True"
+# Gebruik Azure's SQL Server verbindingstring in plaats van lokaal 'host.docker.internal'
+ENV ConnectionStrings__DefaultConnection="Server=tcp:restore-webshop-sql.database.windows.net,1433;Initial Catalog=shop;Persist Security Info=False;User ID=app-user;Password=P8ssw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;"
 
 # Start de .NET backend
 ENTRYPOINT ["dotnet", "API.dll"]

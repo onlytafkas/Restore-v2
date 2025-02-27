@@ -16,6 +16,26 @@ public class DbInitializer
         var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>()
             ?? throw new InvalidOperationException("Failed to retrieve user manager");
 
+
+// ================ logging code : mag weg nadien
+        var config = scope.ServiceProvider.GetRequiredService<IConfiguration>();
+        var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+
+        // Haal connection string op
+        var connectionString = config.GetConnectionString("DefaultConnection");
+
+        if (!string.IsNullOrEmpty(connectionString))
+        {
+            var safeConnectionString = connectionString;
+            logger.LogInformation("Using Connection String: {ConnectionString}", safeConnectionString);
+        }
+        else
+        {
+            logger.LogWarning("No connection string found!");
+        }
+// ================
+
+
         await SeedData(context, userManager);
     }
 
@@ -33,7 +53,7 @@ public class DbInitializer
 
             await userManager.CreateAsync(user, "Pa$$w0rd");
             await userManager.AddToRoleAsync(user, "Member");
-           
+
             var admin = new User
             {
                 UserName = "admin@test.com",

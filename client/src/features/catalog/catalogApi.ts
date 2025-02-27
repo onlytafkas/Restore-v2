@@ -9,6 +9,7 @@ export const catalogApi = createApi({
     reducerPath: 'catalogApi',
     baseQuery: baseQueryWithErrorHandling,
     endpoints: (builder => ({
+        // .env and env.production files are needed to work here!
         fetchProducts: builder.query<{ items: Product[], pagination: Pagination }, ProductParams>({
             query: (productParams) => {
                 return {
